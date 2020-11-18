@@ -1,28 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-app-bar
+      app
+      color="primary"
+      dark
+    >
+
+      <div class="d-flex align-center">
+        <v-btn
+          text
+          to='/'
+        >
+          <span class="mr-2">Home</span>
+        </v-btn>
+        <v-btn
+          text
+          to='/about'
+        >
+          <span class="mr-2">About</span>
+        </v-btn>
+
+      </div>
+
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+<script>
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-#nav a {
-  font-weight: bold;
-}
+  components: {
+  },
 
-#nav a.router-link-exact-active {
-}
-</style>
+  data: () => ({
+    //
+  }),
+};
+</script>
