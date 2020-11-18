@@ -1,8 +1,8 @@
 "use strict";
 
-import Vue from 'vue';
 import axios from "axios";
 
+const CO3UUM_URL             = process.env.VUE_APP_CO3UUM_URL              // "https://co3.liquidfeedback.com/"
 // Full config:  https://github.com/axios/axios#request-config
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
@@ -10,6 +10,7 @@ import axios from "axios";
 
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
+  baseURL: CO3UUM_URL
   // timeout: 60 * 1000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };
@@ -39,23 +40,22 @@ _axios.interceptors.response.use(
   }
 );
 
-Plugin.install = function(Vue) {
-  Vue.axios = _axios;
-  window.axios = _axios;
-  Object.defineProperties(Vue.prototype, {
-    axios: {
-      get() {
-        return _axios;
-      }
-    },
-    $axios: {
-      get() {
-        return _axios;
-      }
-    },
-  });
-};
-
-Vue.use(Plugin)
-
-export default Plugin;
+export default {
+  install: function(Vue) {
+    console.log('axios install')
+    Vue.axios = _axios;
+    window.axios = _axios;
+    Object.defineProperties(Vue.prototype, {
+      axios: {
+        get() {
+          return _axios;
+        }
+      },
+      $axios: {
+        get() {
+          return _axios;
+        }
+      },
+    });
+  }
+}
