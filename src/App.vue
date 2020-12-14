@@ -24,7 +24,7 @@
         <v-tab to="/beneficiaries">Beneficiaries</v-tab>
         <v-tab to="/merchants">Merchants</v-tab>
         <v-tab to="/coop-boxes">Coop Boxes</v-tab>
-        <v-tab to="/admins">Admins</v-tab>
+        <!--<v-tab to="/admins">Admins</v-tab>-->
       </v-tabs>
       <section class="container pa-4 pa-sm-6 pa-md-8 container--fluid" style="transform-origin: center top 0px;">
       <router-view/>
