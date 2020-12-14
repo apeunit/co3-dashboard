@@ -21,7 +21,7 @@
 <script>
 // @ is an alias to /src
 
-import {mapActions, mapState} from 'vuex'
+import {mapMutations, mapActions, mapState} from 'vuex'
 export default {
   name: 'Home',
   components: {
@@ -31,8 +31,21 @@ export default {
     ...mapState(['profile'])
   },
   methods: {
-    ...mapActions(['login']),
-    ...mapActions(['logout'])
+    ...mapActions([
+      'login',
+      'logout'
+    ]),
+    ...mapMutations({
+      setAuthToken: 'SET_AUTH_TOKEN'
+    })
+  },
+  mounted() {
+    if('access_token' in this.$route.query) {
+      this.setAuthToken(this.$route.query.access_token)
+    }
+    // else {
+    // TODO: Better handeling of
+    // }
   }
 }
 </script>

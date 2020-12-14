@@ -5,7 +5,7 @@ import Beneficiaries from '../views/Beneficiaries.vue'
 import Merchants from '../views/Merchants.vue'
 import CoopBoxes from '../views/CoopBoxes.vue'
 import Admins from '../views/Admins.vue'
-import Settings from '../views/Settings.vue'
+// import Settings from '../views/Settings.vue'
 import store from '../store'
 
 Vue.use(VueRouter)
@@ -36,11 +36,11 @@ const routes = [
     name: 'Admins',
     component: Admins
   },
-  {
-    path: '/settings',
-    name: 'Settings',
-    component: Settings
-  },
+  // {
+  //   path: '/settings',
+  //   name: 'Settings',
+  //   component: Settings
+  // },
   {
     path: '/about',
     name: 'About',
